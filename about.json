@@ -1,0 +1,24 @@
+{
+    "name": "Sonatype Discourse Theme",
+    "about_url": "http://sonatype.com",
+    "license_url": "",
+     "assets": {
+     },
+     "color_schemes": {
+        "Sonatype": {
+            "primary": "369",
+            "secondary": "885195",
+            "tertiary": "4D75E1",
+            "quaternary": "5A6EE2",
+            "header_background": "676adf",
+            "header_primary": "ffffff",
+            "highlight": "ffff4d",
+            "danger": "ec5648",
+            "success": "009900",
+            "love": "fa6c8d"
+          }
+      }
+  }
+
+
+
