@@ -158,7 +158,9 @@ span.badge-category-bg {
 
 @media screen and (min-width: 915px) {
     .navbar-item,
-    .menu-link {
+    .menu-link,
+    .navbar-item:active,
+    .menu-link:active {
         display: flex;
     }
 }
