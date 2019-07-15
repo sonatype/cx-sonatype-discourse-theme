@@ -151,11 +151,14 @@ span.badge-category-bg {
     font-weight: lighter;
 }
 
-@media screen and (min-width: 915px) {
+.navbar-item,
+.menu-link {
+    display: none;
+}
 
+@media screen and (min-width: 915px) {
     .navbar-item,
-    .navbar-item:visited,
-    .navbar-item:active {
+    .menu-link {
         display: flex;
     }
 }
@@ -164,27 +167,73 @@ span.badge-category-bg {
     color: #2b66ab;
 }
 
-.navbar-title:hover {
-    color: #2b66ab;
+.menu-link {
+    position: relative;
+    padding-right: 10px;
+    margin-right: 10px;
+
+    .menu-dropdown {
+        position: absolute;
+        left: 0;
+        top: 82px;
+        border: 0;
+        border-bottom-left-radius: 6px;
+        border-bottom-right-radius: 6px;
+        border-top: 2px solid #dbdbdb;
+        box-shadow: 0 8px 8px rgba(10,10,10,.1);
+        min-width: 120px;
+        padding: 5px 0;
+        background: white;
+        z-index: 100;
+
+        .dropdown-item {
+            border-bottom: 0;
+            font-size: 14px;
+            padding: 0;
+
+            a {
+                text-decoration: none;
+                font-weight: 400;
+                padding: 10px 25px 10px 15px;
+                display: inline-block;
+                width: 100%;
+                white-space: nowrap;
+                color: #3b4d96;
+            }
+
+            a:hover {
+                text-decoration: none;
+            }
+        }
+
+        .dropdown-item:hover,
+        .dropdown-item:focus {
+            background-color: #f5f5f5;
+        }
+    }
 }
 
-.navbar-title,
-.navbar-title:active {
-    font-size: 20px;
-    font-weight: heavier;
-    padding-left: 16px;
-    padding-right: 16px;
-    background-color: transparent;
+.menu-link:hover .menu-dropdown  {
+    display: block !important;
+    visibility: visible !important;
 }
 
-.navbar-title::before {
-    content: "|";
+.menu-link:after {
+    border: 3px solid #3b4d96;
+    border-radius: 2px;
+    border-right: 0;
+    border-top: 0;
+    content: " ";
+    display: block;
+    height: .425em;
+    pointer-events: none;
     position: absolute;
-    left: -3px;
-    font-size: 1.7em;
-    color: #3b4d96;
-    margin-top: -3px;
-    padding-right: 5px;
+    top: 50%;
+    transform: rotate(-45deg);
+    transform-origin: center;
+    width: .425em;
+    margin-top: -.375em;
+    right: 0;
 }
 
 /* Voting Plugin Customization */
