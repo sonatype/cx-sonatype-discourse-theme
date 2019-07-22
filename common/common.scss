@@ -113,7 +113,7 @@ span.badge-category-bg {
 }
 
 .d-header #site-logo {
-    height: 25px;
+    max-height: 25px;
 }
 
 /* custom navigation */
@@ -254,6 +254,7 @@ span.badge-category-bg {
 .d-header .btn-small {
     background: transparent;
     opacity: .8;
+    color: #4a4a4a;
 }
 
 .d-header .btn-small:hover {
