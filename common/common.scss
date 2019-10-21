@@ -148,7 +148,7 @@ span.badge-category-bg {
     display: none;
     align-items: center;
     font-size: 14px;
-    font-weight: lighter;
+    font-weight: 400;
 }
 
 .navbar-item,
@@ -252,9 +252,12 @@ span.badge-category-bg {
 
 /* login button in header */
 .d-header .btn-small {
-    background: transparent;
+    background: #efefef;
     opacity: .8;
     color: #4a4a4a;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    padding: .6em 1.4em;
 }
 
 .d-header .btn-small:hover {
@@ -267,6 +270,22 @@ span.badge-category-bg {
     font-size: 1.1em;
     font-weight: 500;
     margin-left: .2rem;
+}
+
+.d-header .d-header-icons a.icon {
+    width: 2em;
+    height: 1.5em;
+    padding: .2em;
+    margin-top: .13em;
+    border: 1px solid transparent;
+}
+
+.d-header .d-header-icons a.icon:hover {
+    border-color: #ccc;
+}
+
+.d-header-icons a.icon .d-icon {
+    font-size: 1.3em;
 }
 
 
