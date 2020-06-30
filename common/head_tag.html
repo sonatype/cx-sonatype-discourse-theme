@@ -6,4 +6,35 @@
             return false;
         }
     })
+
+     api.onPageChange((url) => {
+	    if (Discourse.User.current()) {
+            var dParam = {
+                    eventType: 'pageview',
+                    keycloak_id: Discourse.User.current().external_id,
+                    service_name: 'discourse',
+                    scope: 'community.s.c',
+                    source: {
+                    itemType: 'site',
+                    scope: 'community.s.c',
+                    itemId: 'community.s.c',
+                    },
+                    target: {
+                    itemType: 'page',
+                    scope: 'community.s.c',
+                    itemId: 'community.s.c',
+                    properties: {
+                        pageInfo: {
+                            destinationURL: url,
+                            referringURL: ''
+                        }
+                    }
+                }
+            }
+
+            var d = JSON.stringify(dParam);
+            d = btoa(d).replace(/\+/g, '-').replace(/\//g, '_').replace(/\=+$/, '');
+            fetch('https://cdp-proxy.cx.sonatype.com/collect-id?d=' + d)
+        }
+    })
 </script>
