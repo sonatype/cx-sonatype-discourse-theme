@@ -1,173 +1,172 @@
-<script defer src="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@v2.8.9/dist/cookieconsent.js"></script>
+<script defer type="text/javascript" src="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@v2.8.9/dist/cookieconsent.js"></script>
 <script>
+  // Define dataLayer
+  window.dataLayer = window.dataLayer || [];
+  
   window.addEventListener('load', function(){
 
-  // obtain plugin
-  var cc = initCookieConsent();
+    // obtain plugin
+    var cc = initCookieConsent();
 
-  // run plugin with your configuration
-  cc.run({
-    // See: https://github.com/orestbida/cookieconsent#all-configuration-options
-    autorun: true,
-    current_lang: 'en',
-    auto_language: null,                       // default: null; could also be 'browser' or 'document'
-    autoclear_cookies: true,                   // default: false
-    cookie_name: 'cc_cookie',                  // default: 'cc_cookie' (does not want to work correctly with another name)
-    cookie_expiration: 365,                    // default: 182
-    cookie_domain: 'sonatype.com',             // default: current domain location.hostname
-    force_consent: false,                      // default: false
-    page_scripts: true,                        // default: false
-    mode: 'opt-in',                          // default: 'opt-in'; value: 'opt-in' or 'opt-out'
-    onFirstAction: function(user_preferences, cookie){
-        // callback triggered only once on the first accept/reject action
-        if (cc.allowedCategory('marketing')) {
-          acceptMarketingCookies() ;
-        }
-    },
-    onAccept: function (cookie) {
-        // callback triggered on the first accept/reject action, and after each page load
-    },
-    onChange: function (cookie, changed_categories) {
-        // callback triggered when user changes preferences after consent has already been given
-    },
-    gui_options: {
-        consent_modal: {
-            layout: 'cloud',               // box/cloud/bar
-            position: 'bottom center',     // bottom/middle/top + left/right/center
-            transition: 'slide',           // zoom/slide
-            swap_buttons: true            // enable to invert buttons
-        },
-        settings_modal: {
-            layout: 'box',                 // box/bar
-            // position: 'left',           // left/right
-            transition: 'slide',            // zoom/slide
-            swap_buttons: true
-        }
-    },
-    languages: {
-      en: {
+    // run plugin with your configuration
+    cc.run({
+      // See: https://github.com/orestbida/cookieconsent#all-configuration-options
+      autorun: true,
+      current_lang: 'en',
+      auto_language: null,                       // default: null; could also be 'browser' or 'document'
+      autoclear_cookies: true,                   // default: false
+      cookie_name: 'cc_cookie',                  // default: 'cc_cookie' (does not want to work correctly with another name)
+      cookie_expiration: 365,                    // default: 182
+      cookie_domain: 'sonatype.com',             // default: current domain location.hostname
+      force_consent: false,                      // default: false
+      page_scripts: true,                        // default: false
+      mode: 'opt-in',                          // default: 'opt-in'; value: 'opt-in' or 'opt-out'
+      onFirstAction: function(user_preferences, cookie){
+          // callback triggered only once on the first accept/reject action
+          if (cc.allowedCategory('marketing')) {
+            acceptMarketingCookies() ;
+          }
+      },
+      onAccept: function (cookie) {
+          // callback triggered on the first accept/reject action, and after each page load
+      },
+      onChange: function (cookie, changed_categories) {
+          // callback triggered when user changes preferences after consent has already been given
+      },
+      gui_options: {
           consent_modal: {
-              title: '',
-              description: 'This website uses cookies to provide you with a better user experience. By using the website, you agree to the use of anonymous analytics tracking cookies. You may opt out of marketing-related cookies if you\'d like.',
-              primary_btn: {
-                  text: 'Accept',
-                  role: 'accept_all'              // 'accept_selected' or 'accept_all'
-              },
-              secondary_btn: {
-                  text: 'Opt Out',
-                  role: 'accept_necessary'                // 'settings' or 'accept_necessary'
-              }
+              layout: 'cloud',               // box/cloud/bar
+              position: 'bottom center',     // bottom/middle/top + left/right/center
+              transition: 'slide',           // zoom/slide
+              swap_buttons: true            // enable to invert buttons
           },
           settings_modal: {
-              title: 'Cookie preferences',
-              save_settings_btn: 'Save settings',
-              accept_all_btn: 'Accept all',
-              reject_all_btn: 'Reject all',       // optional, [v.2.5.0 +]
-              cookie_table_headers: [
-                  {col1: 'Name'},
-                  {col2: 'Domain'},
-                  {col3: 'Expiration'},
-                  {col4: 'Description'},
-                  {col5: 'Type'}
-              ],
-              blocks: [
-                  {
-                      title: 'Cookie usage',
-                      description: 'This site uses cookies to ensure the basic functionalities of the website and to enhance your online experience. You can choose for each category to opt-in/out whenever you want.'
-                  }, {
-                      title: 'Statistics / Analytics cookies',
-                      description: 'These cookies collect information about how you use the website, which pages you visited and which links you clicked on. All of the data is anonymized and cannot be used to identify you.',
-                      toggle: {
-                          value: 'analytics',
-                          enabled: true,
-                          readonly: false
-                      },
-                      cookie_table: [
-                          {
-                              col1: '^_ga',
-                              col2: 'google.com',
-                              col3: '2 years',
-                              col4: 'description ...',
-                              col5: 'Permanent cookie',
-                              is_regex: true
-                          },
-                          {
-                              col1: '_gid',
-                              col2: 'google.com',
-                              col3: '1 day',
-                              col4: 'description ...',
-                              col5: 'Permanent cookie'
-                          }
-                      ]
-                  },
-                  {
-                      title: 'Marketing cookies',
-                      description: 'These cookies collect information about how you use the website, which pages you visited and which links you clicked on. All of the data is anonymized and cannot be used to identify you.',
-                      toggle: {
-                          value: 'marketing',
-                          enabled: false,
-                          readonly: false
-                      },
-                      cookie_table: [
-                          {
-                              col1: '^_ga',
-                              col2: 'google.com',
-                              col3: '2 years',
-                              col4: 'description ...',
-                              col5: 'Permanent cookie',
-                              is_regex: true
-                          },
-                          {
-                              col1: '_gid',
-                              col2: 'google.com',
-                              col3: '1 day',
-                              col4: 'description ...',
-                              col5: 'Permanent cookie'
-                          }
-                      ]
-                  }
-              ]
+              layout: 'box',                 // box/bar
+              // position: 'left',           // left/right
+              transition: 'slide',            // zoom/slide
+              swap_buttons: true
           }
+      },
+      languages: {
+        en: {
+            consent_modal: {
+                title: '',
+                description: 'This website uses cookies to provide you with a better user experience. By using the website, you agree to the use of anonymous analytics tracking cookies. You may opt out of marketing-related cookies if you\'d like.',
+                primary_btn: {
+                    text: 'Accept',
+                    role: 'accept_all'              // 'accept_selected' or 'accept_all'
+                },
+                secondary_btn: {
+                    text: 'Opt Out',
+                    role: 'accept_necessary'                // 'settings' or 'accept_necessary'
+                }
+            },
+            settings_modal: {
+                title: 'Cookie preferences',
+                save_settings_btn: 'Save settings',
+                accept_all_btn: 'Accept all',
+                reject_all_btn: 'Reject all',       // optional, [v.2.5.0 +]
+                cookie_table_headers: [
+                    {col1: 'Name'},
+                    {col2: 'Domain'},
+                    {col3: 'Expiration'},
+                    {col4: 'Description'},
+                    {col5: 'Type'}
+                ],
+                blocks: [
+                    {
+                        title: 'Cookie usage',
+                        description: 'This site uses cookies to ensure the basic functionalities of the website and to enhance your online experience. You can choose for each category to opt-in/out whenever you want.'
+                    }, {
+                        title: 'Statistics / Analytics cookies',
+                        description: 'These cookies collect information about how you use the website, which pages you visited and which links you clicked on. All of the data is anonymized and cannot be used to identify you.',
+                        toggle: {
+                            value: 'analytics',
+                            enabled: true,
+                            readonly: false
+                        },
+                        cookie_table: [
+                            {
+                                col1: '^_ga',
+                                col2: 'google.com',
+                                col3: '2 years',
+                                col4: 'description ...',
+                                col5: 'Permanent cookie',
+                                is_regex: true
+                            },
+                            {
+                                col1: '_gid',
+                                col2: 'google.com',
+                                col3: '1 day',
+                                col4: 'description ...',
+                                col5: 'Permanent cookie'
+                            }
+                        ]
+                    },
+                    {
+                        title: 'Marketing cookies',
+                        description: 'These cookies collect information about how you use the website, which pages you visited and which links you clicked on. All of the data is anonymized and cannot be used to identify you.',
+                        toggle: {
+                            value: 'marketing',
+                            enabled: false,
+                            readonly: false
+                        },
+                        cookie_table: [
+                            {
+                                col1: '^_ga',
+                                col2: 'google.com',
+                                col3: '2 years',
+                                col4: 'description ...',
+                                col5: 'Permanent cookie',
+                                is_regex: true
+                            },
+                            {
+                                col1: '_gid',
+                                col2: 'google.com',
+                                col3: '1 day',
+                                col4: 'description ...',
+                                col5: 'Permanent cookie'
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
       }
-    }
-  });
+    });
 
-  initGACookies(cc);
+    initGACookies(cc);
   });
 
   function gtag(){dataLayer.push(arguments);}
 
   function initGACookies(cc) {
-  // Define dataLayer and the gtag function.
-  window.dataLayer = window.dataLayer || [];
-
-
-  // Default ad_storage to 'denied'.
-  var marketing = 'denied';
-  if (cc.allowedCategory('marketing')){
-    marketing = 'granted';
-  }
-  gtag('consent', 'default', {
-    'ad_storage': marketing,
-    'analytics_storage': 'granted'
-  });
-  loadGTM();
+    // Default ad_storage to 'denied'.
+    var marketing = 'denied';
+    if (cc.allowedCategory('marketing')){
+      marketing = 'granted';
+    }
+    gtag('consent', 'default', {
+      'ad_storage': marketing,
+      'analytics_storage': 'granted'
+    });
+    loadGTM();
   }
 
   /** Google Tag Manager **/
   function loadGTM(){
-  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-K652WF9');
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-K652WF9');
   }
   /** End Google Tag Manager **/
 
   function acceptMarketingCookies() {
-  gtag('consent', 'update', {
-    'ad_storage': 'granted'
-  });
+    gtag('consent', 'update', {
+      'ad_storage': 'granted'
+    });
   }
 </script>
 
