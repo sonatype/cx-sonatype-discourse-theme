@@ -314,3 +314,29 @@ span.badge-category-bg {
 .footer-links a:hover {
     opacity: 0.5;
 }
+
+// cookie consent custom css
+//https://github.com/orestbida/cookieconsent/blob/master/src/cookieconsent.css
+:root{
+  --cc-bg: #f9faff;
+  --cc-text: hsl(0deg, 0%, 29%);
+  --cc-btn-primary-bg: hsl(229deg, 53%, 53%);
+  --cc-btn-primary-text: var(--cc-bg);
+  --cc-btn-primary-hover-bg: #3e56c4;
+  --cc-btn-secondary-bg: hsl(0deg, 0%, 96%);
+  --cc-btn-secondary-text: rgba(0, 0, 0, 0.7);
+  --cc-btn-secondary-hover-bg: #eeeeee;
+  --cc-toggle-bg-off: #8fa8d6;
+  --cc-toggle-bg-on: #3859d0;
+  --cc-toggle-bg-readonly: #cbd8f1;
+  --cc-toggle-knob-bg: #fff;
+  --cc-toggle-knob-icon-color: #ecf2fa;
+  --cc-block-text: var(--cc-text);
+  --cc-cookie-category-block-bg: #ebeff9;
+  --cc-cookie-category-block-bg-hover: #dbe5f9;
+  --cc-section-border: #f1f3f5;
+  --cc-cookie-table-border: #e1e7f3;
+  --cc-overlay-bg: rgba(230, 235, 255, .85);
+  --cc-webkit-scrollbar-bg: #ebeff9;
+  --cc-webkit-scrollbar-bg-hover: #3859d0;
+}
