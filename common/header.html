@@ -229,6 +229,10 @@
     });
 
     initGACookies();
+    
+    document.getElementById('cc-cookie-settings').addEventListener('click', function() {
+      cc.showSettings();
+    });
   });
 
   function gtag(){dataLayer.push(arguments);}
